@@ -1,0 +1,75 @@
+
+> studio-os@0.1.0 lint
+> eslint
+
+
+C:\Users\dsgry\StudioOS\check_clients.js
+  2:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\dsgry\StudioOS\delete_test_client.js
+  2:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\dsgry\StudioOS\prisma\seed.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\dsgry\StudioOS\src\app\actions\booking.ts
+    6:10  warning  'BookingStatus' is defined but never used    @typescript-eslint/no-unused-vars
+  180:15  warning  'result' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\dsgry\StudioOS\src\app\actions\dashboard.ts
+  4:32  warning  'addDays' is defined but never used       @typescript-eslint/no-unused-vars
+  7:12  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  8:15  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\dsgry\StudioOS\src\app\book\page.tsx
+   72:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\dsgry\StudioOS\src\app\book\page.tsx:72:13
+  70 |     useEffect(() => {
+  71 |         if (step === "DATE" && selectedService && selectedDate) {
+> 72 |             setLoading(true);
+     |             ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  73 |             setSlots([]); // Clear previous slots
+  74 |             getAvailableSlots(selectedDate.toISOString(), selectedService.id).then(res => {
+  75 |                 if (res.success && res.data) {  react-hooks/set-state-in-effect
+  382:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react/no-unescaped-entities
+
+C:\Users\dsgry\StudioOS\src\app\brief\page.tsx
+  27:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\dsgry\StudioOS\src\app\clients\[clientId]\page.tsx
+  4:75  warning  'XCircle' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\dsgry\StudioOS\src\app\components\SessionCard.tsx
+  4:10  warning  'Clock' is defined but never used         @typescript-eslint/no-unused-vars
+  8:14  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\dsgry\StudioOS\src\app\components\StudioAccess.tsx
+   4:18  warning  'LayoutDashboard' is defined but never used                 @typescript-eslint/no-unused-vars
+   4:35  warning  'FileText' is defined but never used                        @typescript-eslint/no-unused-vars
+   4:45  warning  'FolderClosed' is defined but never used                    @typescript-eslint/no-unused-vars
+   4:74  warning  'Users' is defined but never used                           @typescript-eslint/no-unused-vars
+   4:81  warning  'BookOpen' is defined but never used                        @typescript-eslint/no-unused-vars
+  15:12  warning  'isChangingPin' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  20:11  warning  'router' is assigned a value but never used                 @typescript-eslint/no-unused-vars
+  56:11  warning  'handleChangePinSubmit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  89:11  warning  'DEMO_BOOKING_ID' is assigned a value but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\dsgry\StudioOS\src\app\session\[bookingId]\page.tsx
+    6:43  warning  'AlertCircle' is defined but never used   @typescript-eslint/no-unused-vars
+   73:71  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:48  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\dsgry\StudioOS\src\app\vault\page.tsx
+   3:10  warning  'format' is defined but never used        @typescript-eslint/no-unused-vars
+  28:44  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+??? 29 problems (13 errors, 16 warnings)
+

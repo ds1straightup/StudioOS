@@ -1,0 +1,89 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+node.exe : Error: 
+Prisma schema 
+validation - 
+(get-dmmf wasm)
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Error: Pri   
+ sma s...(get-dmmf    
+ wasm):String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+Error code: P1012
+[1;91merror[0m: 
+[1mError validating: 
+You defined the enum 
+`BookingStatus`. But 
+the current connector 
+does not support 
+enums.[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:4
+5[0m
+[1;94m   | [0m
+[1;94m44 | [0m
+[1;94m45 | 
+[0m[1;91menum 
+BookingStatus {[0m
+[1;94m46 | [0m  
+AVAILABLE // Admin 
+created slot, open 
+for public
+[1;94m47 | [0m  
+PROVISIONAL // 
+Selected by user, 15m 
+hold
+[1;94m48 | [0m  
+CONFIRMED // Deposit 
+paid
+[1;94m49 | [0m  
+COMPLETED // Session 
+finished
+[1;94m50 | [0m  
+CANCELLED
+[1;94m51 | [0m}
+[1;94m   | [0m
+[1;91merror[0m: 
+[1mError validating: 
+You defined the enum 
+`PaymentStatus`. But 
+the current connector 
+does not support 
+enums.[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:5
+3[0m
+[1;94m   | [0m
+[1;94m52 | [0m
+[1;94m53 | 
+[0m[1;91menum 
+PaymentStatus {[0m
+[1;94m54 | [0m  
+PENDING
+[1;94m55 | [0m  PAID
+[1;94m56 | [0m  
+REFUNDED
+[1;94m57 | [0m}
+[1;94m   | [0m
+
+Validation Error 
+Count: 2
+[Context: getDmmf]
+
+Prisma CLI Version : 
+5.22.0

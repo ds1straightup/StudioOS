@@ -1,0 +1,310 @@
+﻿
+> studio-os@0.1.0 build
+> next build
+
+Ôû▓ Next.js 16.1.5 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 1637.0ms
+  Running TypeScript ...
+  Collecting page data using 19 workers ...
+node.exe : Error: 
+Failed to collect 
+configuration for 
+/vault/[bookingId]
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Error: Fai   
+ led t...ult/[book    
+ingId]:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+    at ignore-listed 
+frames {
+  [cause]: Error [Pris
+maClientInitialization
+Error]: 
+`PrismaClient` needs 
+to be constructed 
+with a non-empty, 
+valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__e1db58
+17._.js:1:407)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\_e94fc
+7a6._.js:19:44806)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__e1db58
+17._.js:2:351) {
+    clientVersion: 
+'7.3.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+Error: Failed to 
+collect configuration 
+for /dashboard
+    at ignore-listed 
+frames {
+  [cause]: Error [Pris
+maClientInitialization
+Error]: 
+`PrismaClient` needs 
+to be constructed 
+with a non-empty, 
+valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__d1a944
+b4._.js:1:407)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__d1a944
+b4._.js:2:641)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__e2588e
+33._.js:1:1337) {
+    clientVersion: 
+'7.3.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+Error: Failed to 
+collect configuration 
+for 
+/session/[bookingId]
+    at ignore-listed 
+frames {
+  [cause]: Error [Pris
+maClientInitialization
+Error]: 
+`PrismaClient` needs 
+to be constructed 
+with a non-empty, 
+valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__ed23a9
+d4._.js:1:407)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\[root-
+of-the-server]__ed23a9
+d4._.js:2:1929)
+      at 
+instantiateModule (C:\
+Users\dsgry\StudioOS\.
+next\server\chunks\ssr
+\[turbopack]_runtime.j
+s:740:9)
+      at getOrInstanti
+ateModuleFromParent (C
+:\Users\dsgry\StudioOS
+\.next\server\chunks\s
+sr\[turbopack]_runtime
+.js:763:12)
+      at 
+Context.esmImport [as 
+i] (C:\Users\dsgry\Stu
+dioOS\.next\server\chu
+nks\ssr\[turbopack]_ru
+ntime.js:228:20)
+      at module 
+evaluation (C:\Users\d
+sgry\StudioOS\.next\se
+rver\chunks\ssr\_83a79
+59e._.js:1:33) {
+    clientVersion: 
+'7.3.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+
+> Build error occurred
+Error: Failed to 
+collect page data for 
+/vault/[bookingId]
+    at ignore-listed 
+frames {
+  type: 'Error'
+}

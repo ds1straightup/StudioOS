@@ -1,0 +1,150 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+node.exe : Error: 
+Prisma schema 
+validation - 
+(get-dmmf wasm)
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Error: Pri   
+ sma s...(get-dmmf    
+ wasm):String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+Error code: P1012
+[1;91merror[0m: 
+[1mType 
+"BookingStatus" is 
+neither a built-in 
+type, nor refers to 
+another model, 
+composite type, or 
+enum.[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:5
+4[0m
+[1;94m   | [0m
+[1;94m53 | [0m  
+[1;94m54 | [0m  
+status          [1;91
+mBookingStatus[0m 
+@default(AVAILABLE)
+[1;94m   | [0m
+[1;91merror[0m: 
+[1mType 
+"PaymentStatus" is 
+neither a built-in 
+type, nor refers to 
+another model, 
+composite type, or 
+enum.[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:6
+6[0m
+[1;94m   | [0m
+[1;94m65 | [0m  
+depositAmount   Float 
+        @default(0)
+[1;94m66 | [0m  
+depositStatus   [1;91
+mPaymentStatus[0m 
+@default(PENDING)
+[1;94m   | [0m
+[1;91merror[0m: 
+[1mError validating: 
+The argument 
+`references` must 
+refer only to 
+existing fields in 
+the related model 
+`Booking`. The 
+following fields do 
+not exist in the 
+related model: id[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:9
+3[0m
+[1;94m   | [0m
+[1;94m92 | [0m  
+bookingId       
+String    @unique
+[1;94m93 | [0m  
+booking         
+Booking   [1;91m@rela
+tion(fields: 
+[bookingId], 
+references: [id], 
+onDelete: Cascade)[0m
+[1;94m   | [0m
+[1;91merror[0m: 
+[1mError validating: 
+The argument 
+`references` must 
+refer only to 
+existing fields in 
+the related model 
+`Booking`. The 
+following fields do 
+not exist in the 
+related model: id[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:1
+07[0m
+[1;94m   | [0m
+[1;94m106 | [0m  
+bookingId String
+[1;94m107 | [0m  
+booking   Booking  [1
+;91m@relation(fields: 
+[bookingId], 
+references: [id], 
+onDelete: Cascade)[0m
+[1;94m   | [0m
+[1;91merror[0m: 
+[1mError validating: 
+The argument 
+`references` must 
+refer only to 
+existing fields in 
+the related model 
+`Booking`. The 
+following fields do 
+not exist in the 
+related model: id[0m
+  [1;94m-->[0m  [4m
+prisma\schema.prisma:1
+27[0m
+[1;94m   | [0m
+[1;94m126 | [0m  
+bookingId String
+[1;94m127 | [0m  
+booking   Booking  [1
+;91m@relation(fields: 
+[bookingId], 
+references: [id])[0m
+[1;94m   | [0m
+
+Validation Error 
+Count: 5
+[Context: getDmmf]
+
+Prisma CLI Version : 
+5.22.0
+Assertion failed: 
+!(handle->flags & 
+UV_HANDLE_CLOSING), 
+file src\win\async.c, 
+line 76

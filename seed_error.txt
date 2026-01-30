@@ -1,0 +1,98 @@
+﻿node.exe : C:\Users\ds
+gry\StudioOS\node_modu
+les\@prisma\client\src
+\runtime\getPrismaClie
+nt.ts:259
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (C:\Users\d   
+ sgry\...maClient.    
+ts:259:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+        throw new Pris
+maClientInitialization
+Error(
+              ^
+
+PrismaClientInitializa
+tionError: 
+`PrismaClient` needs 
+to be constructed 
+with a non-empty, 
+valid 
+`PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at new t (C:\Users
+\dsgry\StudioOS\node_m
+odules\@prisma\client\
+src\runtime\getPrismaC
+lient.ts:259:15)
+    at <anonymous> (C:
+\Users\dsgry\StudioOS\
+prisma\seed.ts:2:16)
+    at 
+Object.<anonymous> (C:
+\Users\dsgry\StudioOS\
+prisma\seed.ts:24:6)
+    at 
+Module._compile (node:
+internal/modules/cjs/l
+oader:1761:14)
+    at 
+Object.transformer (C:
+\Users\dsgry\StudioOS\
+node_modules\tsx\dist\
+register-D46fvsV_.cjs:
+3:1104)
+    at Module.load (no
+de:internal/modules/cj
+s/loader:1481:32)
+    at Module._load (n
+ode:internal/modules/c
+js/loader:1300:12)
+    at TracingChannel.
+traceSync (node:diagno
+stics_channel:328:14)
+    at wrapModuleLoad 
+(node:internal/modules
+/cjs/loader:245:24)
+    at loadCJSModuleWi
+thModuleLoad (node:int
+ernal/modules/esm/tran
+slators:339:3) {
+  clientVersion: 
+'7.3.0',
+  errorCode: 
+undefined,
+  retryable: undefined
+}
+
+Node.js v24.13.0

@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -- Tenants (Studio Owners) --
+model User {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  subdomain       String          @unique // e.g. "beatfarda"
+  name            String?
+  stripeAccountId String?
+  
+  clients         Client[]
+  bookings        Booking[]
+  knowledgeBase   KnowledgeBaseItem[]
+  
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+// -- Clients (Artists) --
+model Client {
+  id          String    @id @default(uuid())
+  email       String
+  name        String?
+  phone       String?
+  portalCode  String    @unique @default(uuid()) // Simple auth for "Client Portal"
+  
+  userId      String    // Belongs to Studio Owner
+  user        User      @relation(fields: [userId], references: [id])
+  
+  bookings    Booking[]
+  
+  notes       String?   // Setmore parity: Private notes
+  status      String    @default("Inquiry") // Inquiry, Active, Completed, etc.
+  creditBalance Float   @default(0) // Hours available in bank
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([userId, email]) // Client email unique per studio
+}
+
+// -- The Calendar & Sessions --
+model Booking {
+  id              String        @id @default(uuid())
+  startTime       DateTime
+  endTime         DateTime
+  serviceName     String?
+  
+  status          String        @default("AVAILABLE") // Was Enum BookingStatus
+  
+  // Provisional state
+  provisionalExpiresAt DateTime?
+  
+  // Guest details (before Client record is confirmed/linked)
+  guestName       String?
+  guestEmail      String?
+  
+  // Financials
+  totalAmount     Float         @default(0)
+  depositAmount   Float         @default(0)
+  depositStatus   String        @default("PENDING") // Was Enum PaymentStatus
+  stripeSessionId String?
+  
+  balanceDue      Float         // Computed: total - deposit (if paid)
+  
+  // Agreement
+  agreementSigned Boolean       @default(false)
+  
+  // Relations
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  
+  clientId        String?
+  client          Client?       @relation(fields: [clientId], references: [id])
+  
+  brief           Brief?
+  deliverables    Deliverable[]
+  logs            SessionLog[]
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+// -- Module B: The Briefing Room --
+model Brief {
+  id              String    @id @default(uuid())
+  bookingId       String    @unique
+  booking         Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  
+  bpm             String?
+  key             String?
+  referenceTracks String?   // Stored as JSON string or text
+  notes           String?   // Additional context/vision notes
+  files           String?   // S3 Links, JSON
+  
+  completedAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// -- Module D: Session Mode --
+model SessionLog {
+  id        String   @id @default(uuid())
+  bookingId String
+  booking   Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  
+  content   String
+  
+  createdAt DateTime @default(now())
+}
+
+model KnowledgeBaseItem {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  
+  category  String
+  title     String
+  content   String
+  
+  createdAt DateTime @default(now())
+}
+
+// -- Module E: The Vault --
+model Deliverable {
+  id        String   @id @default(uuid())
+  bookingId String
+  booking   Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  
+  name      String
+  s3Key     String
+  sizeBytes Int
+  
+  isLocked  Boolean  @default(true) // Unlocked when Booking is PAID
+  
+  createdAt DateTime @default(now())
+}

@@ -1,42 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* -- Palette: FardaVision Void -- */
+  --accent-color: #a855f7;
+  --accent-rgb: 168, 85, 247;
+
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-hover: #121212;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* -- Text Colors -- */
+  --color-text: #ffffff;
+  --color-text-muted: #a3a3a3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* -- Components Layer -- */
+@layer components {
+
+  /* Base Glass Panel - Clean */
+  .glass-panel {
+    @apply border border-white/10 bg-black/90 backdrop-blur-md overflow-hidden transition-colors duration-300;
+  }
+
+  .glass-panel:hover {
+    @apply border-void-purple;
+  }
+
+  /* Typography */
+  .neon-text {
+    text-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+  }
+
+  .neon-text-white {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-white text-void-purple border border-white/20 shadow-neon font-bold transition-all duration-300 px-6 py-3 rounded-full flex items-center justify-center gap-2;
+  }
+
+  .btn-primary:hover {
+    @apply bg-void-purple text-white border-void-purple shadow-neon-strong;
+  }
+
+  /* Form Elements */
+  .input {
+    @apply w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-void-purple focus:ring-1 focus:ring-void-purple transition-all duration-300;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+/* -- Utilities Layer -- */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }

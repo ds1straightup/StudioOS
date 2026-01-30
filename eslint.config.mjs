@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "check_clients.js",
+    "delete_test_client.js",
+    "prisma/seed.js",
+    "studio-os-deploy/**",
   ]),
 ]);
 
