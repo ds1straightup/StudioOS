@@ -4,6 +4,7 @@ import Link from 'next/link';
 // import StudioNav from '../components/StudioNav';
 import ClientStatus from '../components/ClientStatus';
 import DeleteClientButton from '../components/DeleteClientButton';
+export const dynamic = 'force-dynamic';
 
 export default async function ClientsPage() {
     const clients = await getClients();

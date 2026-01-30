@@ -4,6 +4,7 @@ import SessionCard from '@/app/components/SessionCard';
 // Suspense removed
 
 // Semantic CSS is defined in globals.css under /* -- Dashboard -- */
+export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
     const data = await getDashboardSessions();

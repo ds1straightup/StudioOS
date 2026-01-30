@@ -3,6 +3,7 @@ import { FolderOpen, Plus, Tag } from 'lucide-react';
 import WikiAccordion from '@/app/components/WikiAccordion';
 // import StudioNav from '../components/StudioNav';
 // revalidatePath removed
+export const dynamic = 'force-dynamic';
 
 export default async function WikiPage() {
     const groupedWiki = await getWiki();
