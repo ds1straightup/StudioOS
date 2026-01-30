@@ -15,23 +15,27 @@ export async function saveBrief(formData: FormData) {
     }
 
     try {
-        await prisma.brief.create({
-            data: {
+        await prisma.brief.upsert({
+            where: { bookingId },
+            update: {
+                bpm,
+                key,
+                referenceTracks: references,
+                notes,
+            },
+            create: {
                 bookingId,
                 bpm,
                 key,
                 referenceTracks: references,
                 notes,
-                // files: TODO S3 integration
             }
         });
     } catch (error) {
-        console.error("Brief creation failed:", error);
+        console.error("Brief update failed:", error);
         return { success: false, error: "Failed to save brief." };
     }
 
     // "Clarity in writing" - Success.
-    // Redirect to a confirmation or the "Client Portal" (future Module F)
-    // For now, redirect to the main site
-    redirect('https://thebeatfarda.com');
+    redirect('/dashboard');
 }

@@ -1,15 +1,19 @@
 import { saveBrief } from '@/app/actions/brief';
-// import StudioNav from '@/app/components/StudioNav';
+import { getSessionDetails } from '@/app/actions/session';
+import { redirect } from 'next/navigation';
 
 export default async function BriefPage({ params }: { params: Promise<{ bookingId: string }> }) {
     const { bookingId } = await params;
+    const session = await getSessionDetails(bookingId);
+
+    if (!session) redirect('/dashboard');
+
+    const brief = session.brief;
 
     return (
         <div className="min-h-screen flex flex-col items-center relative overflow-hidden bg-black text-white font-body">
             {/* Background Effects */}
             <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] mix-blend-overlay"></div>
-
-
 
             <main className="relative z-10 flex-grow flex flex-col items-center justify-center p-6 w-full max-w-2xl mx-auto pb-32">
                 <div className="glass-panel w-full p-8 md:p-12 rounded-3xl animate-fade-in space-y-10">
@@ -18,7 +22,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
                             Briefing <span className="text-void-purple neon-text">Room</span>
                         </h1>
                         <p className="text-neutral-400 text-lg font-light tracking-wide">
-                            Define your sonic vision.
+                            {brief ? 'Review or update your sonic vision.' : 'Define your sonic vision.'}
                         </p>
                     </header>
 
@@ -35,6 +39,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
                                     type="number"
                                     name="bpm"
                                     placeholder="140"
+                                    defaultValue={brief?.bpm || ''}
                                     required
                                     className="input font-mono text-lg"
                                 />
@@ -46,6 +51,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
                                 </label>
                                 <select
                                     name="key"
+                                    defaultValue={brief?.key || ''}
                                     required
                                     className="input appearance-none font-mono text-lg"
                                 >
@@ -68,6 +74,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
                                 name="references"
                                 rows={4}
                                 placeholder="Paste Spotify or YouTube links here..."
+                                defaultValue={brief?.referenceTracks || ''}
                                 required
                                 className="input resize-none font-mono text-sm leading-relaxed"
                             ></textarea>
@@ -84,6 +91,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
                                 name="notes"
                                 rows={4}
                                 placeholder="Vibe, specific instruments, vocal chain ideas..."
+                                defaultValue={brief?.notes || ''}
                                 className="input resize-none font-mono text-sm leading-relaxed"
                             ></textarea>
                             <p className="text-[10px] uppercase tracking-widest text-neutral-600 text-right">
@@ -93,7 +101,7 @@ export default async function BriefPage({ params }: { params: Promise<{ bookingI
 
                         <div className="pt-6">
                             <button type="submit" className="w-full btn-primary group">
-                                <span>INITIALIZE BRIEF</span>
+                                <span>{brief ? 'UPDATE BRIEF' : 'INITIALIZE BRIEF'}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 transition-transform group-hover:translate-x-1"><polyline points="9 18 15 12 9 6" /></svg>
                             </button>
                         </div>
